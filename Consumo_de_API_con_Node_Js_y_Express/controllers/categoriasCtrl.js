@@ -1,7 +1,7 @@
 // GET
 const categoriaListar = ()=>{
     listado = {
-        "1":"Fútbol",
+        "1":"Futbol",
         "2":"Baloncesto",
         "3":"Tenis"
     }
@@ -38,7 +38,7 @@ const categoriaObtener = async (req,res) => {
     //Proceso DB
     let categoria
     if(id == 1){
-        categoria = {"1":"Fútbol"}
+        categoria = {"1":"Futbol"}
     }
     if(id == 2){
         categoria = {"2":"Baloncesto"}
