@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router()
 const categoriasCtrl = require('../controllers/categoriasCtrl')
 
-router.get('/',function(req,res){
-    res.send(categoriasCtrl.categoriaListar())
-})
+router.get('/',categoriasCtrl.categoriaListar)
 
 router.post('/',categoriasCtrl.categoriaGuardar)
 

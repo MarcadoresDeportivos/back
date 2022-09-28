@@ -1,2 +1,5 @@
 //Instalar:
 npm i express
+
+// Instalar DB
+npm i mongoose

@@ -5,6 +5,7 @@ const usuariosCtrl = require('../controllers/usuariosCtrl')
 //router.get('/',function(req,res){
 //    res.send(usuariosCtrl.usuarioListar())
 //})
+//router.get('/',usuariosCtrl.usuarioListar)
 
 router.post('/',usuariosCtrl.usuarioGuardar)
 

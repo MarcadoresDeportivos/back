@@ -2,9 +2,7 @@ const express = require('express')
 const router = express.Router()
 const equiposCtrl = require('../controllers/equiposCtrl')
 
-router.get('/',function(req,res){
-    res.send(equiposCtrl.equipoListar())
-})
+router.get('/',equiposCtrl.equipoListar)
 
 router.post('/',equiposCtrl.equipoGuardar)
 
