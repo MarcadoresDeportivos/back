@@ -4,12 +4,8 @@ const categoriasCtrl = require('../controllers/categoriasCtrl')
 
 router.get('/',categoriasCtrl.categoriaListar)
 
-// router.post('/',function(req,res){
+router.post('/',categoriasCtrl.categoriaGuardar)
 
-//     res.send(categoriasCtrl.categoriaGuardar());
-// })
-
-router.post('/',categoriasCtrl.categoriaGuardar);
 router.get('/:id',categoriasCtrl.categoriaObtener)
 
 router.put('/',categoriasCtrl.categoriaActualizar)
