@@ -3,7 +3,8 @@ const app = express()
 const puerto = 3000
 // Para la conexión a la DB
 const db = require('./config/db');
-
+const cors = require('cors')
+app.use(cors())
 //Rutas
 app.use(express.json());
 app.use('/api/categoria',require('./routes/categoriasRoute'));
