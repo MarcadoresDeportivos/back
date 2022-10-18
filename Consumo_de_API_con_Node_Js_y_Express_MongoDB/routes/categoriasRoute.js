@@ -1,15 +1,16 @@
 const express = require('express')
 const router = express.Router()
 const categoriasCtrl = require('../controllers/categoriasCtrl')
+const auth = require('../security/auth')
 
-router.get('/',categoriasCtrl.categoriaListar)
+router.get('/',auth,categoriasCtrl.categoriaListar)
 
-router.post('/',categoriasCtrl.categoriaGuardar)
+router.post('/',auth,categoriasCtrl.categoriaGuardar)
 
-router.get('/:id',categoriasCtrl.categoriaObtener)
+router.get('/:id',auth,categoriasCtrl.categoriaObtener)
 
-router.put('/',categoriasCtrl.categoriaActualizar)
+router.put('/',auth,categoriasCtrl.categoriaActualizar)
 
-router.delete('/:id',categoriasCtrl.categoriaEliminar)
+router.delete('/:id',auth,categoriasCtrl.categoriaEliminar)
 
 module.exports = router

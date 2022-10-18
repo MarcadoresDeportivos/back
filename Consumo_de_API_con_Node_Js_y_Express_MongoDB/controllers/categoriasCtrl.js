@@ -7,9 +7,10 @@ const categoriaListar = async (req,res) => {
     try{ 
         const categorias = await categoriaModel.find()
         res.status(200).send(categorias)
+        console.log("Categoria listar: "+categorias)
     }catch(error){
         if(error){
-            console.log("Error categoria listar: "+error)
+            // console.log("Error categoria listar ")
             res.status(400).send("Error categoria listar")
         }        
     }
@@ -18,10 +19,10 @@ const categoriaListar = async (req,res) => {
 
 // POST
 const categoriaGuardar = async (req,res) => {
-    console.log(req.body)
+    console.log(req)
     const nombre = req.body.nombre
     let mensaje = {}
-    console.log("name: "+nombre)
+    console.log("name: "+JSON.stringify(req.body))
     if(nombre == ''){
         mensaje = {"msj":"Nombre de Categoria No valido"}
         res.status(400).json(mensaje)

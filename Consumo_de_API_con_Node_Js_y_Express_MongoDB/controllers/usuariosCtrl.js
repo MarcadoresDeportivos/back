@@ -1,6 +1,8 @@
 // Para la Mongo DB
 const { mapReduce } = require('../models/usuarioScheme')
 const usuarioModel = require('../models/usuarioScheme')
+const bcryptjs = require('bcryptjs')
+const jwt = require('jsonwebtoken')
 
 // POST
 const usuarioGuardar = async (req,res) => {
@@ -33,8 +35,9 @@ const usuarioGuardar = async (req,res) => {
         try{
             // Objeto correspondiente al modelo, datos puerto
             const usuario = new usuarioModel(req.body)
+            usuario.password = await bcryptjs.hash(usuario.password,10)
             // Para que guarde en la DB
-            usuario.save()
+            await usuario.save()
 
             // Mensaje de éxito
             res.status(200).json({"msj":"usuario Guardado"})
@@ -44,6 +47,46 @@ const usuarioGuardar = async (req,res) => {
         }
         //
     }    
+}
+
+const usuarioLogin = async(req,res)=>{
+
+    try{
+        const {email, password} = req.body
+        let usuario = await usuarioModel.findOne({"email":email})
+        if(!usuario){
+
+            res.status(401).json({msj:"El usuario no existe"})
+        }
+
+        const correcto =  bcryptjs.compare(usuario.password, password)
+      
+        
+
+        if(!correcto){
+            res.status(400).json({msj:"Datos de acceso incorrectos"})
+        }else{
+            const payload = {
+                usuario : {id:usuario.id}
+            }
+            jwt.sign(
+                payload,
+                "palabra secreta",
+                {
+                    expiresIn:3600
+                },
+                (error,token)=>{
+                    if(error)throw error 
+                    res.status(200).json({token:token, msj:"Acceso concedido"})
+                }
+            )
+        }
+
+
+    }catch(ex){
+        res.status(400).json({msj:"Error de acceso: "+ex})
+    }
+
 }
 /*
 {
@@ -55,5 +98,6 @@ const usuarioGuardar = async (req,res) => {
 */
 
 module.exports = {
-    usuarioGuardar
+    usuarioGuardar,
+    usuarioLogin
 }
