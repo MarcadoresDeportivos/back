@@ -3,8 +3,9 @@ module.exports = async(req,res)=>{
 
     const token = req.header('x-auth-token')
 
+    //Revisión si no hay token
     if(!token){
-        res.status(401).json({msj:"Token no encontrado"})
+        return res.status(400).json({msj:"Token no encontrado, permiso denegado"})
     }
 
     try{
@@ -12,7 +13,7 @@ module.exports = async(req,res)=>{
         req.usuario = cifrado.usuario
         //next()
     }catch(error){
-        res.status(500).json({msj:"error autenticación: "+error})
+        res.status(400).json({msj:"Token no valido, error autenticación: "+error})
     }
 
 }

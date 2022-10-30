@@ -3,3 +3,13 @@ npm i express
 
 // Instalar DB
 npm i mongoose
+
+// Instalar libreria para las imágenes
+npm i --save multer
+
+// Instalar el manejador de encriptación de las contraseñas
+npm i --save bcryptjs
+
+// Instalar para manejo de los Token de las contraseñas
+npm i --save jsonwebtoken
+

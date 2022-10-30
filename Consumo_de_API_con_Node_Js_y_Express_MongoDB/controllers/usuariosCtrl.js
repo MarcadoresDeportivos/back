@@ -50,18 +50,22 @@ const usuarioGuardar = async (req,res) => {
 }
 
 const usuarioLogin = async(req,res)=>{
-
+    console.log("Intento de Login")
+    console.log(req.body)
     try{
         const {email, password} = req.body
-        let usuario = await usuarioModel.findOne({"email":email})
+        let usuario = await usuarioModel.findOne({"email":email}) //Búsqueda en MongoDB
         if(!usuario){
-
             res.status(401).json({msj:"El usuario no existe"})
         }
 
-        const correcto =  bcryptjs.compare(usuario.password, password)
-      
-        
+        //password = await bcryptjs.hash(password,10)
+        //const correcto = await bcryptjs.compare(usuario.password, password)              
+
+        let correcto = false
+        if(usuario.password == password){
+            correcto = true
+        }
 
         if(!correcto){
             res.status(400).json({msj:"Datos de acceso incorrectos"})
@@ -81,12 +85,9 @@ const usuarioLogin = async(req,res)=>{
                 }
             )
         }
-
-
     }catch(ex){
         res.status(400).json({msj:"Error de acceso: "+ex})
     }
-
 }
 /*
 {
