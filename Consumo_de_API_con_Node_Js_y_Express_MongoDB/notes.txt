@@ -13,6 +13,9 @@ npm i --save bcryptjs
 // Instalar para manejo de los Token de las contraseñas
 npm i --save jsonwebtoken
 
+Para ejecutar
+nodemon index
+
 ////////////////////////////
 # Instalar en el servidor NPM Y NODEJS
 sudo yum install nodejs
