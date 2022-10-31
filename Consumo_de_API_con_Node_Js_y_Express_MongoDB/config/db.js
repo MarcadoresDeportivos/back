@@ -1,7 +1,9 @@
 // Libreria para usar Mongo DB
 const mongoose = require("mongoose")
 // Dirección de la DB
-const URIDB = 'mongodb://localhost:27017/marcadores'
+//const URIDB = 'mongodb://localhost:27017/marcadores' //En local
+//const URIDB = 'mongodb+srv://haroldCluster:haroldCluster@cluster0.elbwhsa.mongodb.net/test' //En el servidor de la DB
+const URIDB = 'mongodb+srv://haroldCluster:haroldCluster@cluster0.elbwhsa.mongodb.net/marcadores' //En el servidor de la DB
 
 module.exports = ()=>{
     const conn = () => {
