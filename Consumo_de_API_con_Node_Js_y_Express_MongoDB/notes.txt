@@ -17,5 +17,5 @@ Para ejecutar
 nodemon index
 
 ////////////////////////////
-# Instalar en el servidor NPM Y NODEJS
+# Instalar en el servidor CentOS de linux, NPM Y NODEJS
 sudo yum install nodejs

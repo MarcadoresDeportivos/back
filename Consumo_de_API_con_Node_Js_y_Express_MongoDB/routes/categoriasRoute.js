@@ -5,8 +5,6 @@ const auth = require('../security/auth')
 
 router.get('/',auth,categoriasCtrl.categoriaListar)
 
-//router.post('/',auth,categoriasCtrl.categoriaGuardar)
-
 router.post('/',categoriasCtrl.categoriaGuardar)
 
 router.get('/:id',categoriasCtrl.categoriaObtener)
