@@ -59,13 +59,14 @@ const usuarioLogin = async(req,res)=>{
             res.status(401).json({msj:"El usuario no existe"})
         }
 
-        //password = await bcryptjs.hash(password,10)
-        //const correcto = await bcryptjs.compare(usuario.password, password)              
+        const correcto = bcryptjs.compareSync(password,usuario.password);
+        
+        console.log("Contrasenas iguales : "+correcto)      
 
-        let correcto = false
+        /*let correcto = false
         if(usuario.password == password){
             correcto = true
-        }
+        }*/
 
         if(!correcto){
             res.status(400).json({msj:"Datos de acceso incorrectos"})
@@ -80,7 +81,7 @@ const usuarioLogin = async(req,res)=>{
                     expiresIn:3600
                 },
                 (error,token)=>{
-                    if(error)throw error 
+                    if(error) throw error 
                     res.status(200).json({token:token, msj:"Acceso concedido"})
                 }
             )

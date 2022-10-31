@@ -3,7 +3,7 @@ const router = express.Router()
 const categoriasCtrl = require('../controllers/categoriasCtrl')
 const auth = require('../security/auth')
 
-router.get('/',categoriasCtrl.categoriaListar)
+router.get('/',auth,categoriasCtrl.categoriaListar)
 
 //router.post('/',auth,categoriasCtrl.categoriaGuardar)
 
