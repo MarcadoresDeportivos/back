@@ -28,5 +28,5 @@ sudo dnf module list --all nodejs
 # Ejecutar en la carpeta principal
 npm install
 
-# Compilar el proyecto
+# Compilar el proyecto en el servidor
 node src/index.js
