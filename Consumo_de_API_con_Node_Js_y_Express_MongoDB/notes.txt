@@ -17,5 +17,16 @@ Para ejecutar
 nodemon index
 
 ////////////////////////////
-# Instalar en el servidor CentOS de linux, NPM Y NODEJS
+# Instalar en el servidor Oracle linux 8, NPM Y NODEJS
 sudo yum install nodejs
+# Actualizar nodejs
+https://yum.oracle.com/oracle-linux-nodejs.html
+sudo dnf module list --all nodejs
+
+# Organizar los archivos
+
+# Ejecutar en la carpeta principal
+npm install
+
+# Compilar el proyecto
+node src/index.js
