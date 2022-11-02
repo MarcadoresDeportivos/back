@@ -1,0 +1,32 @@
+//Instalar:
+npm i express
+
+// Instalar DB
+npm i mongoose
+
+// Instalar libreria para las imágenes
+npm i --save multer
+
+// Instalar el manejador de encriptación de las contraseñas
+npm i --save bcryptjs
+
+// Instalar para manejo de los Token de las contraseñas
+npm i --save jsonwebtoken
+
+Para ejecutar
+nodemon index
+
+////////////////////////////
+# Instalar en el servidor Oracle linux 8, NPM Y NODEJS
+sudo yum install nodejs
+# Actualizar nodejs
+https://yum.oracle.com/oracle-linux-nodejs.html
+sudo dnf module list --all nodejs
+
+# Organizar los archivos
+
+# Ejecutar en la carpeta principal
+npm install
+
+# Compilar el proyecto
+node src/index.js
